@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LinqExercises
 {
@@ -8,7 +10,7 @@ namespace LinqExercises
         {
             //List<int> numbers = new List<int>() {8, 3, 11, 23, 9, 2, 7, 300 };
 
-            //// SORTING DATA // 
+            // SORTING OPERATION // - ORDERS THE ELEMENTS IN SOME TYPE OF SEQUENCE BASE ON ATTRIBUTES //
 
             //// ORDER BY // - DOES NOT CHANGE ORIGINAL COLLECTION BECAUSE IT RETURNS SOMETHING NEW // 
             //var orderedNumbers = numbers.OrderBy(num => num);
@@ -45,7 +47,38 @@ namespace LinqExercises
             // USED FOR: MAX //
             // USED FOR: SUM //
             // USED FOR: MIN //
+            // USED FOR: COUNT //
+            // USED FOR: AGGREGATE //
+
             List<int> numbers2 = new List<int>() { 8, 3, 11, 23, 9, 2, 7, 300 };
+
+            // MAX //
+            var maxNumber = numbers2.Max();
+            Console.WriteLine("Max:");
+            Console.WriteLine(maxNumber);
+
+            // MIN // 
+            var minOfNumbers = numbers2.Min();
+            Console.WriteLine("Min:");
+            Console.WriteLine(minOfNumbers);
+
+
+            // SUM // 
+            var sumOfNumbers = numbers2.Sum();
+            Console.WriteLine("Sum:");
+            Console.WriteLine(sumOfNumbers);
+
+            // AVERAGE //
+            var averageNumber = numbers2.Average();
+            Console.WriteLine("Average:");
+            Console.WriteLine(averageNumber);
+
+            // COUNT // - Returns the number of elements in that collection - SIMILAR TO .LENGTH //
+            var countOfNumnbers = numbers2.Count();
+            Console.WriteLine("Count:");
+            Console.WriteLine(countOfNumnbers);
+
+
 
         }
     }
