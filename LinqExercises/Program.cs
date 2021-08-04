@@ -178,35 +178,79 @@ namespace LinqExercises
 
             // SET OPERATIONS // - Operations that produce results based on the presence or absence of specific elements in a collection //
 
-            List<int> numbers4 = new List<int>() { 8, 8, 3, 11, 11, 11, 11, 23, 9, 9, 9, 2, 7, 300 };
-            List<int> badNumbers = new List<int>() { 19, 11, 3, 9 };
+            //List<int> numbers4 = new List<int>() { 8, 8, 3, 11, 11, 11, 11, 23, 9, 9, 9, 2, 7, 300 };
+            //List<int> badNumbers = new List<int>() { 19, 11, 3, 9 };
 
-            // EXCEPT - Returns the comparison of the two collections based on the elements given as perameters //
+            //// EXCEPT - Returns the comparison of the two collections based on the elements given as perameters //
 
-            // EXAMPLE - Returns the list of numbers without the 'badNumbers' - The difference between 'numbers3' and 'badNumbers' //
-            var onlyGoodNumbers = numbers4.Except(badNumbers);
-            Console.WriteLine($"Except: { String.Join(',', onlyGoodNumbers)}");
+            //// EXAMPLE - Returns the list of numbers without the 'badNumbers' - The difference between 'numbers3' and 'badNumbers' //
+            //var onlyGoodNumbers = numbers4.Except(badNumbers);
+            //Console.WriteLine($"Except: { String.Join(',', onlyGoodNumbers)}");
 
-            // DISTINCT - USED A LOT OF QUERY AND DATA - RETURNS THE UNIQUE ISNTANCES OF THE GIVEN ELEMENT OR ELEMENTS //
+            //// DISTINCT - USED A LOT OF QUERY AND DATA - RETURNS THE UNIQUE ISNTANCES OF THE GIVEN ELEMENT OR ELEMENTS //
 
-            // EXAMPLE - Returns the unique numbers of the list only once //
-            var uniqueNumbers = numbers4.Distinct();
-            Console.WriteLine($"Distinct: { String.Join(',', uniqueNumbers)}");
+            //// EXAMPLE - Returns the unique numbers of the list only once //
+            //var uniqueNumbers = numbers4.Distinct();
+            //Console.WriteLine($"Distinct: { String.Join(',', uniqueNumbers)}");
 
-            // TAKE // - Returns a specified number of contigous elements from the start of the sequence // 
-            // SKIP // - Bypasses a specified number of elements in a sequence and then returns the remaining elements //
+            //// TAKE // - Returns a specified number of contigous elements from the start of the sequence // 
+            //// SKIP // - Bypasses a specified number of elements in a sequence and then returns the remaining elements //
 
-            // TAKE + SKIP //
+            //// TAKE + SKIP //
 
-            // EXAMPLE  - I want only the first three numbers and the 6th number of the 'numbers5' list - Returns 8, 3, 11, 9 //
-            List<int> numbers5 = new List<int>() { 8, 3, 11, 3, 23, 9, 2, 7, 300 };
-            var firstThreeNumbersAndTheSixth = numbers5.Take(3).Concat(numbers5.Skip(5).Take(1));
-            Console.WriteLine($"Take and Skip: { String.Join(',', firstThreeNumbersAndTheSixth)}");
+            //// EXAMPLE  - I want only the first three numbers and the 6th number of the 'numbers5' list - Returns 8, 3, 11, 9 //
+            //List<int> numbers5 = new List<int>() { 8, 3, 11, 3, 23, 9, 2, 7, 300 };
+            //var firstThreeNumbersAndTheSixth = numbers5.Take(3).Concat(numbers5.Skip(5).Take(1));
+            //Console.WriteLine($"Take and Skip: { String.Join(',', firstThreeNumbersAndTheSixth)}");
 
             // Checkout RANGE and JOIN //
 
             // END OF SET OPERATIONS // 
 
+            // ANIMALS //
+
+            var animals = new List<Animal>
+            {
+                new Animal {Type = "Pikachu", HeightInInches = 24, WeightInPounds = 10 },
+                new Animal {Type = "Charzard", HeightInInches = 72, WeightInPounds = 250 },
+                new Animal {Type = "Bulbasaur", HeightInInches = 12, WeightInPounds = 450 },
+                new Animal {Type = "JigglyPuff", HeightInInches = 9, WeightInPounds = 5 },
+                new Animal {Type = "Cthulu", HeightInInches = 9, WeightInPounds = 5 }
+
+            };
+
+            // Example - Return animals that start with 'C' and returning it. ToLower is so that it isn't case sensitive //
+            // Loop through each value of the object and prints out the 'Type' that starts with C // 
+            // Case Sensitive //
+            // Deffered Expectation - Helps Performance // 
+            //var animalsThatStartwithC = animals.Where(animal => animal.Type.ToLower().StartsWith("c"));
+
+            //foreach (var animal in animalsThatStartwithC)
+            //{
+            //    Console.WriteLine(animal.Type);
+            //}
+
+
+            // GROUP BY - Group a collection by a given Key (based on a function) // 
+
+            // EXAMPLE - Group the Animals by the first Character of the 'Type' Key in the Collection - Ex. 'P' for Pikachu //
+            // Then it's holding in a group setting and waits for further instructions //
+            var groupAnimals = animals.GroupBy(animal => animal.Type.First());
+            
+
+            foreach (var animalGroup in groupAnimals)
+            {
+                // Loops through every aniaml in 'groupAnimals' variable and prints the value we grabbed in the groupAnimals - Ex. 'P' for Pikachu //
+                Console.WriteLine($"Animals that start with {animalGroup.Key}");
+
+                // Loops through every animal in the 'animalGroup' variable we declared in the loop above and prints each type of that Animal that starts with that Character - Ex. "Pkachi" //
+                foreach (var animal in animalGroup)
+                {
+                    Console.WriteLine(animal.Type);
+                }
+            } 
+
         }
     }
 }
+ 
