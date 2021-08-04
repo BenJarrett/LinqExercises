@@ -50,7 +50,7 @@ namespace LinqExercises
             // USED FOR: COUNT //
             // USED FOR: AGGREGATE //
 
-            List<int> numbers2 = new List<int>() { 8, 3, 11, 23, 9, 2, 7, 300 };
+            //List<int> numbers2 = new List<int>() { 8, 3, 11, 23, 9, 2, 7, 300 };
 
             // MAX //
             //var maxNumber = numbers2.Max();
@@ -97,20 +97,44 @@ namespace LinqExercises
             // SELECT // - SIMILAR TO ARRAY.MAP - RETURNS A NEW COLLECTION  OF IEnunerable<T> //
             // IN THIS EXAMPLE, WE ARE ADDING 12 TO EACH VALUE IN THE COLLECTION //
 
-            var biggerNumbers2 = numbers2.Select(num => num + 12);
-            Console.WriteLine($"Select: { String.Join(',', biggerNumbers2)}");
+            //var biggerNumbers2 = numbers2.Select(num => num + 12);
+            //Console.WriteLine("Select:");
+            //Console.WriteLine($"Select: { String.Join(',', biggerNumbers2)}");
 
             // END OF PROJECTION METHODS //
 
 
-            // ELEMENT METHODS/OPERATIONS //
+            // ELEMENT METHODS/OPERATIONS // - USED IN SQL // 
+            // RETURN A SINGLE OR SPECIFIC ELEMENT FROM A SEQUENCE //
+            // CAN BE MIXED WITH 'WHERE' FUNCTION - To find the mathcing item of something //
 
+            List<int> numbers3 = new List<int>() { 8, 3, 11, 23, 9, 2, 7, 300 };
 
+            // FIRST (OR DEFAULT) // - DEFAULT IF NOTHING MATCHES WHAT WE ASKING IT TO MATCH //
+            var firstNumber = numbers3.First();
+            Console.WriteLine("First:");
+            Console.WriteLine(firstNumber);
 
+            // LAST //
+            var lastNumber = numbers3.Last();
+            Console.WriteLine("Last:");
+            Console.WriteLine(lastNumber);
 
+            // METHOD CHAINING or LINQING //
+            // FIRST COMBINDED WITH WHILE //
+            // First mathcing item //
+            // EXAMPLE - Finds first number that is greater than 9 //
 
+            var firstMatchingNumber = numbers3.Where(num => num > 9).First();
 
+            // CAN ALSO DO //
+            var firstMatchingNumber2 = numbers3.First(num => num > 9);
 
+            Console.WriteLine("First + While:");
+            Console.WriteLine(firstMatchingNumber);
+            Console.WriteLine(firstMatchingNumber2);
+
+            // END OF ELEMENT METHODS //
 
         }
     }
