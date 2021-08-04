@@ -110,31 +110,72 @@ namespace LinqExercises
 
             List<int> numbers3 = new List<int>() { 8, 3, 11, 23, 9, 2, 7, 300 };
 
-            // FIRST (OR DEFAULT) // - DEFAULT IF NOTHING MATCHES WHAT WE ASKING IT TO MATCH //
-            var firstNumber = numbers3.First();
-            Console.WriteLine("First:");
-            Console.WriteLine(firstNumber);
+            //// FIRST (OR DEFAULT) // - DEFAULT IF NOTHING MATCHES WHAT WE ASKING IT TO MATCH //
+            //var firstNumber = numbers3.First();
+            //Console.WriteLine("First:");
+            //Console.WriteLine(firstNumber);
 
-            // LAST //
-            var lastNumber = numbers3.Last();
-            Console.WriteLine("Last:");
-            Console.WriteLine(lastNumber);
+            //// LAST //
+            //var lastNumber = numbers3.Last();
+            //Console.WriteLine("Last:");
+            //Console.WriteLine(lastNumber);
 
-            // METHOD CHAINING or LINQING //
-            // FIRST COMBINDED WITH WHILE //
-            // First mathcing item //
-            // EXAMPLE - Finds first number that is greater than 9 //
+            //// METHOD CHAINING or LINQING //
+            //// FIRST COMBINDED WITH WHILE //
+            //// First mathcing item //
+            //// EXAMPLE - Finds first number that is greater than 9 //
 
-            var firstMatchingNumber = numbers3.Where(num => num > 9).First();
+            //var firstMatchingNumber = numbers3.Where(num => num > 9).First();
 
-            // CAN ALSO DO //
-            var firstMatchingNumber2 = numbers3.First(num => num > 9);
+            //// CAN ALSO DO //
+            //var firstMatchingNumber2 = numbers3.First(num => num > 9);
 
-            Console.WriteLine("First + While:");
-            Console.WriteLine(firstMatchingNumber);
-            Console.WriteLine(firstMatchingNumber2);
+            //Console.WriteLine("First + While:");
+            //Console.WriteLine(firstMatchingNumber);
+            //Console.WriteLine(firstMatchingNumber2);
 
             // END OF ELEMENT METHODS //
+
+
+            // QUANTIFIER OPERATIONS - RETURNS A BOOLEAN - That indicates whether or not it satifies the condition //
+
+            // ALL - ALL OBJECTS IN THAT COLLECTION MEET A CERTAIN CONDITION // 
+            // ANY - IF ANY ELEMENT MEETS CERTAIN CONDITION //
+            // CONTAINS - IF IT CONTAINS A SPECIFIC ELEMENT //
+
+            // ALL // - NORMALLY USED WITH A 'WHERE' // NOT USUALLY USED ON IT'S OWN //
+
+            // EXAMPLE - Are all items in this collection greater than 5 - Boolean value is False //
+            var allNumbers = numbers3.All(c => c > 5);
+            Console.WriteLine("All:");
+            Console.WriteLine(allNumbers);
+
+            // ANY - NOT USUALLY USED ON IT'S OWN //
+
+            // EXAMPLE - Are there any items in this collection? - Nothing in container returns Boolean Value of 'True' //
+            var anyNumbers = numbers3.Any();
+            Console.WriteLine("Any:");
+            Console.WriteLine(anyNumbers);
+
+            // EXAMPLE 2 - Are there any items in this collection less than 5 - BOOLEAN VALUE IS 'TRUE' //
+            var anyNumbers2 = numbers3.Any(c => c < 5);
+            Console.WriteLine("Any Numbers Less Than 5:");
+            Console.WriteLine(anyNumbers2);
+
+            // CONTAINS - USEFUL FOR:  ANY WORDS THAT CONTAIN THIS LETTER //
+
+            // EXAMPLE - Does this collection container the number 7? - BOOLEAN VALUE IS 'TRUE' //
+            var containsNumber = numbers3.Contains(7);
+            Console.WriteLine("Contains 7:");
+            Console.WriteLine(containsNumber);
+
+            // EXAMPLE 2 - Does this collection container the number 7 or 3? - BOOLEAN VALUE IS 'TRUE' //
+            var containsNumbers = numbers3.Contains(7) || numbers3.Contains(3);
+            Console.WriteLine("Contains 7 or 3:");
+            Console.WriteLine(containsNumbers);
+
+            // END OF QUANTIFIER OPERATIONS //
+
 
         }
     }
