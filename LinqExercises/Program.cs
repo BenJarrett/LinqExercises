@@ -108,7 +108,7 @@ namespace LinqExercises
             // RETURN A SINGLE OR SPECIFIC ELEMENT FROM A SEQUENCE //
             // CAN BE MIXED WITH 'WHERE' FUNCTION - To find the mathcing item of something //
 
-            List<int> numbers3 = new List<int>() { 8, 3, 11, 23, 9, 2, 7, 300 };
+            //List<int> numbers3 = new List<int>() { 8, 3, 11, 23, 9, 2, 7, 300 };
 
             //// FIRST (OR DEFAULT) // - DEFAULT IF NOTHING MATCHES WHAT WE ASKING IT TO MATCH //
             //var firstNumber = numbers3.First();
@@ -146,36 +146,66 @@ namespace LinqExercises
             // ALL // - NORMALLY USED WITH A 'WHERE' // NOT USUALLY USED ON IT'S OWN //
 
             // EXAMPLE - Are all items in this collection greater than 5 - Boolean value is False //
-            var allNumbers = numbers3.All(c => c > 5);
-            Console.WriteLine("All:");
-            Console.WriteLine(allNumbers);
+            //var allNumbers = numbers3.All(c => c > 5);
+            //Console.WriteLine("All:");
+            //Console.WriteLine(allNumbers);
 
-            // ANY - NOT USUALLY USED ON IT'S OWN //
+            //// ANY - NOT USUALLY USED ON IT'S OWN //
 
-            // EXAMPLE - Are there any items in this collection? - Nothing in container returns Boolean Value of 'True' //
-            var anyNumbers = numbers3.Any();
-            Console.WriteLine("Any:");
-            Console.WriteLine(anyNumbers);
+            //// EXAMPLE - Are there any items in this collection? - Nothing in container returns Boolean Value of 'True' //
+            //var anyNumbers = numbers3.Any();
+            //Console.WriteLine("Any:");
+            //Console.WriteLine(anyNumbers);
 
-            // EXAMPLE 2 - Are there any items in this collection less than 5 - BOOLEAN VALUE IS 'TRUE' //
-            var anyNumbers2 = numbers3.Any(c => c < 5);
-            Console.WriteLine("Any Numbers Less Than 5:");
-            Console.WriteLine(anyNumbers2);
+            //// EXAMPLE 2 - Are there any items in this collection less than 5 - BOOLEAN VALUE IS 'TRUE' //
+            //var anyNumbers2 = numbers3.Any(c => c < 5);
+            //Console.WriteLine("Any Numbers Less Than 5:");
+            //Console.WriteLine(anyNumbers2);
 
-            // CONTAINS - USEFUL FOR:  ANY WORDS THAT CONTAIN THIS LETTER //
+            //// CONTAINS - USEFUL FOR:  ANY WORDS THAT CONTAIN THIS LETTER //
 
-            // EXAMPLE - Does this collection container the number 7? - BOOLEAN VALUE IS 'TRUE' //
-            var containsNumber = numbers3.Contains(7);
-            Console.WriteLine("Contains 7:");
-            Console.WriteLine(containsNumber);
+            //// EXAMPLE - Does this collection container the number 7? - BOOLEAN VALUE IS 'TRUE' //
+            //var containsNumber = numbers3.Contains(7);
+            //Console.WriteLine("Contains 7:");
+            //Console.WriteLine(containsNumber);
 
-            // EXAMPLE 2 - Does this collection container the number 7 or 3? - BOOLEAN VALUE IS 'TRUE' //
-            var containsNumbers = numbers3.Contains(7) || numbers3.Contains(3);
-            Console.WriteLine("Contains 7 or 3:");
-            Console.WriteLine(containsNumbers);
+            //// EXAMPLE 2 - Does this collection container the number 7 or 3? - BOOLEAN VALUE IS 'TRUE' //
+            //var containsNumbers = numbers3.Contains(7) || numbers3.Contains(3);
+            //Console.WriteLine("Contains 7 or 3:");
+            //Console.WriteLine(containsNumbers);
 
             // END OF QUANTIFIER OPERATIONS //
 
+            // SET OPERATIONS // - Operations that produce results based on the presence or absence of specific elements in a collection //
+
+            List<int> numbers4 = new List<int>() { 8, 8, 3, 11, 11, 11, 11, 23, 9, 9, 9, 2, 7, 300 };
+            List<int> badNumbers = new List<int>() { 19, 11, 3, 9 };
+
+            // EXCEPT - Returns the comparison of the two collections based on the elements given as perameters //
+
+            // EXAMPLE - Returns the list of numbers without the 'badNumbers' - The difference between 'numbers3' and 'badNumbers' //
+            var onlyGoodNumbers = numbers4.Except(badNumbers);
+            Console.WriteLine($"Except: { String.Join(',', onlyGoodNumbers)}");
+
+            // DISTINCT - USED A LOT OF QUERY AND DATA - RETURNS THE UNIQUE ISNTANCES OF THE GIVEN ELEMENT OR ELEMENTS //
+
+            // EXAMPLE - Returns the unique numbers of the list only once //
+            var uniqueNumbers = numbers4.Distinct();
+            Console.WriteLine($"Distinct: { String.Join(',', uniqueNumbers)}");
+
+            // TAKE // - Returns a specified number of contigous elements from the start of the sequence // 
+            // SKIP // - Bypasses a specified number of elements in a sequence and then returns the remaining elements //
+
+            // TAKE + SKIP //
+
+            // EXAMPLE  - I want only the first three numbers and the 6th number of the 'numbers5' list - Returns 8, 3, 11, 9 //
+            List<int> numbers5 = new List<int>() { 8, 3, 11, 3, 23, 9, 2, 7, 300 };
+            var firstThreeNumbersAndTheSixth = numbers5.Take(3).Concat(numbers5.Skip(5).Take(1));
+            Console.WriteLine($"Take and Skip: { String.Join(',', firstThreeNumbersAndTheSixth)}");
+
+            // Checkout RANGE and JOIN //
+
+            // END OF SET OPERATIONS // 
 
         }
     }
