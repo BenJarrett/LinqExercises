@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinqExercises
 {
-    class Animals
+    class Animal
     {
         public string Type { get; set; }
         public int WeightInPounds { get; set; }
