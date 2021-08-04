@@ -78,6 +78,17 @@ namespace LinqExercises
             Console.WriteLine("Count:");
             Console.WriteLine(countOfNumnbers);
 
+            // END OF AGGREGATE METHODS //
+
+            // FILTER METHODS // - FILTERS BASED ON CONDITION //
+            // WHERE // - RETURNS SOMETHING // - SIMILAR TO .MAP() IN JAVASCRIPT //
+
+            // EXAMPLE -- WE WANT ALL THE NUMBERS GREATER THAN 9 //
+
+            var biggerNumbers = numbers2.Where( taco => taco > 9 );
+            Console.WriteLine($"While: { String.Join(',', biggerNumbers)}"); 
+
+            // END OF FILTER METHODS //
 
 
         }
