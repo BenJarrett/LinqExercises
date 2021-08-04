@@ -53,42 +53,63 @@ namespace LinqExercises
             List<int> numbers2 = new List<int>() { 8, 3, 11, 23, 9, 2, 7, 300 };
 
             // MAX //
-            var maxNumber = numbers2.Max();
-            Console.WriteLine("Max:");
-            Console.WriteLine(maxNumber);
+            //var maxNumber = numbers2.Max();
+            //Console.WriteLine("Max:");
+            //Console.WriteLine(maxNumber);
 
-            // MIN // 
-            var minOfNumbers = numbers2.Min();
-            Console.WriteLine("Min:");
-            Console.WriteLine(minOfNumbers);
+            //// MIN // 
+            //var minOfNumbers = numbers2.Min();
+            //Console.WriteLine("Min:");
+            //Console.WriteLine(minOfNumbers);
 
 
-            // SUM // 
-            var sumOfNumbers = numbers2.Sum();
-            Console.WriteLine("Sum:");
-            Console.WriteLine(sumOfNumbers);
+            //// SUM // 
+            //var sumOfNumbers = numbers2.Sum();
+            //Console.WriteLine("Sum:");
+            //Console.WriteLine(sumOfNumbers);
 
-            // AVERAGE //
-            var averageNumber = numbers2.Average();
-            Console.WriteLine("Average:");
-            Console.WriteLine(averageNumber);
+            //// AVERAGE //
+            //var averageNumber = numbers2.Average();
+            //Console.WriteLine("Average:");
+            //Console.WriteLine(averageNumber);
 
-            // COUNT // - Returns the number of elements in that collection - SIMILAR TO .LENGTH //
-            var countOfNumnbers = numbers2.Count();
-            Console.WriteLine("Count:");
-            Console.WriteLine(countOfNumnbers);
+            //// COUNT // - Returns the number of elements in that collection - SIMILAR TO .LENGTH //
+            //var countOfNumnbers = numbers2.Count();
+            //Console.WriteLine("Count:");
+            //Console.WriteLine(countOfNumnbers);
 
-            // END OF AGGREGATE METHODS //
+            //// END OF AGGREGATE METHODS //
 
-            // FILTER METHODS // - FILTERS BASED ON CONDITION //
-            // WHERE // - RETURNS SOMETHING // - SIMILAR TO .MAP() IN JAVASCRIPT //
+            //// FILTER METHODS // - FILTERS BASED ON CONDITION // - RETURNS A NEW COLLECTION //
+            //// WHERE // - RETURNS SOMETHING // - SIMILAR TO ARRAY.FILTER() IN JAVASCRIPT //
 
-            // EXAMPLE -- WE WANT ALL THE NUMBERS GREATER THAN 9 //
+            //// EXAMPLE -- WE WANT ALL THE NUMBERS GREATER THAN 9 //
 
-            var biggerNumbers = numbers2.Where( taco => taco > 9 );
-            Console.WriteLine($"While: { String.Join(',', biggerNumbers)}"); 
+            //var biggerNumbers = numbers2.Where( taco => taco > 9 );
+            //Console.WriteLine($"While: { String.Join(',', biggerNumbers)}"); 
 
             // END OF FILTER METHODS //
+
+
+            // PROJECTION METHODS //
+            // TRANSFORMING DATA //
+
+            // SELECT // - SIMILAR TO ARRAY.MAP - RETURNS A NEW COLLECTION  OF IEnunerable<T> //
+            // IN THIS EXAMPLE, WE ARE ADDING 12 TO EACH VALUE IN THE COLLECTION //
+
+            var biggerNumbers2 = numbers2.Select(num => num + 12);
+            Console.WriteLine($"Select: { String.Join(',', biggerNumbers2)}");
+
+            // END OF PROJECTION METHODS //
+
+
+            // ELEMENT METHODS/OPERATIONS //
+
+
+
+
+
+
 
 
         }
